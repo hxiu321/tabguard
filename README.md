@@ -185,7 +185,7 @@ tabguard/
 
 ## 📞 联系方式
 
-- Issues：[GitHub Issues](https://github.com/heidyhuang/tabguard/issues)
+- Issues：[GitHub Issues](https://github.com/hxiu321/tabguard/issues)
 - Email：hxiu321@gmail.com
 
 ---
@@ -194,4 +194,4 @@ tabguard/
 
 如果这个项目对你有帮助，请给个 Star ⭐️
 
-[![Star History Chart](https://api.star-history.com/svg?repos=your-username/tabguard&type=Date)](https://star-history.com/#your-username/tabguard&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=your-username/tabguard&type=Date)](https://star-history.com/#your-username/tabguard&Date)# tabguard
