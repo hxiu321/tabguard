@@ -1,0 +1,399 @@
+:root {
+  color-scheme: light;
+  --bg: #f8fafd;
+  --surface: #ffffff;
+  --surface-hover: #f1f3f4;
+  --text: #202124;
+  --muted: #5f6368;
+  --border: #dadce0;
+  --border-soft: #e8eaed;
+  --accent: #1a73e8;
+  --accent-hover: #1765cc;
+  --danger: #d93025;
+  --danger-hover: #b3261e;
+  --focus: rgba(26, 115, 232, 0.22);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 430px;
+  min-width: 430px;
+  margin: 0;
+  color: var(--text);
+  background: var(--bg);
+  font: 13px/1.45 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  overflow-y: auto;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+  opacity: 0.55;
+}
+
+.settingsShell {
+  width: 430px;
+  min-width: 430px;
+  margin: 0 auto;
+  padding: 0 16px 18px;
+}
+
+.settingsHeader {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 56px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-soft);
+  background: rgba(248, 250, 253, 0.96);
+  backdrop-filter: blur(8px);
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+h2 {
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+#saveHint,
+.sectionHead p,
+.switchRow small {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.iconButton {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  color: var(--muted);
+  background: transparent;
+  font-size: 18px;
+}
+
+.iconButton:hover {
+  background: var(--surface-hover);
+}
+
+.settingsForm {
+  display: grid;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.section {
+  overflow: hidden;
+  border: 1px solid var(--border-soft);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.sectionHead {
+  display: grid;
+  gap: 4px;
+  padding: 14px 18px 10px;
+}
+
+.fieldGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 20px;
+  row-gap: 14px;
+  padding: 0 18px 18px;
+}
+
+.field {
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+}
+
+.field span {
+  color: var(--text);
+  font-weight: 400;
+}
+
+input,
+select {
+  width: 100%;
+  min-height: 34px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  outline: 0;
+  padding: 0 10px;
+  color: var(--text);
+  background: var(--surface);
+}
+
+input:focus,
+select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--focus);
+}
+
+.settingRows {
+  display: grid;
+}
+
+.switchRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 18px;
+  min-height: 62px;
+  padding: 12px 18px;
+  border-top: 1px solid var(--border-soft);
+  background: var(--surface);
+}
+
+.sectionHead + .settingRows .switchRow:first-child {
+  border-top: 0;
+}
+
+.switchRow > span {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.switchRow strong {
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.switchRow input[type="checkbox"] {
+  position: relative;
+  width: 2.75em;
+  height: 1.5em;
+  min-height: 1.5em;
+  flex: 0 0 auto;
+  appearance: none;
+  border: 0;
+  border-radius: 999px;
+  padding: 0;
+  background: #bdc1c6;
+  outline: 0;
+  transition: background-color 120ms ease;
+}
+
+.switchRow input[type="checkbox"]::before {
+  position: absolute;
+  top: 0.15em;
+  left: 0.15em;
+  width: 1.2em;
+  height: 1.2em;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 1px 2px rgba(60, 64, 67, 0.32);
+  content: "";
+  transition: transform 120ms ease;
+}
+
+.switchRow input[type="checkbox"]:checked {
+  background: var(--accent);
+}
+
+.switchRow input[type="checkbox"]:checked::before {
+  transform: translateX(1.25em);
+}
+
+.switchRow input[type="checkbox"]:focus-visible {
+  box-shadow: 0 0 0 3px var(--focus);
+}
+
+.compactField {
+  padding: 12px 18px 16px;
+}
+
+.compactField input {
+  max-width: 160px;
+}
+
+.categoryList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 18px;
+}
+
+.categoryChip {
+  display: inline-flex;
+  max-width: 180px;
+  min-height: 30px;
+  align-items: center;
+  gap: 6px;
+  padding: 0 6px 0 10px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+}
+
+.categoryChip input {
+  width: 86px;
+  min-height: 24px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.categoryChip input:focus {
+  box-shadow: none;
+}
+
+.chipRemove {
+  display: grid;
+  width: 20px;
+  height: 20px;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  color: var(--muted);
+  background: transparent;
+}
+
+.chipRemove:hover {
+  background: var(--surface-hover);
+}
+
+.categoryAdd {
+  display: flex;
+  gap: 8px;
+  max-width: 320px;
+  padding: 12px 18px 18px;
+}
+
+.primaryButton,
+.secondaryButton,
+.dangerButton {
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 0 14px;
+  white-space: nowrap;
+}
+
+.primaryButton {
+  color: #ffffff;
+  background: var(--accent);
+}
+
+.primaryButton:hover {
+  background: var(--accent-hover);
+}
+
+.secondaryButton {
+  color: var(--accent);
+  border-color: var(--border);
+  background: var(--surface);
+}
+
+.secondaryButton:hover {
+  background: #f8fbff;
+}
+
+.dangerButton {
+  color: #ffffff;
+  background: var(--danger);
+}
+
+.dangerButton:hover {
+  background: var(--danger-hover);
+}
+
+.dataSection {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px;
+  padding-right: 18px;
+}
+
+.dataSection .sectionHead {
+  margin: 0;
+}
+
+.saveBar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 2px 0 0;
+}
+
+.saveBar .primaryButton {
+  min-width: 104px;
+}
+
+@media (min-width: 700px) {
+  html,
+  body {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .settingsShell {
+    width: min(100%, 760px);
+    min-width: 0;
+    padding-inline: 16px;
+  }
+
+  .fieldGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .settingsShell {
+    padding-inline: 12px;
+  }
+
+  .dataSection {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+
+  .dataSection .dangerButton {
+    justify-self: start;
+    margin: 0 18px 18px;
+  }
+
+  .categoryAdd {
+    max-width: none;
+  }
+}

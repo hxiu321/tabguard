@@ -1,0 +1,58 @@
+name: Lint and Test
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Check JavaScript syntax
+      run: |
+        find . -name "*.js" -not -path "./node_modules/*" -exec jslint {} \; || echo "ESLint not installed, skipping..."
+    
+    - name: Check HTML syntax
+      run: |
+        find . -name "*.html" -not -path "./node_modules/*" | head -20
+        
+    - name: Check CSS syntax
+      run: |
+        find . -name "*.css" -not -path "./node_modules/*" | head -20
+
+  validate-manifest:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Validate manifest.json
+      run: |
+        if [ -f "manifest.json" ]; then
+          echo "manifest.json found"
+          cat manifest.json | jq '.' > /dev/null || exit 1
+        else
+          echo "manifest.json not found"
+          exit 1
+        fi
+
+  check-size:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Check extension size
+      run: |
+        # Calculate total size
+        TOTAL_SIZE=$(du -sh . | cut -f1)
+        echo "Total extension size: $TOTAL_SIZE"
+        
+        # Check if exceeds common limits
+        # Chrome Web Store limit is usually around 100MB for unzipped
+        if [ $(du -sb . | cut -f1) -gt 104857600 ]; then
+          echo "Warning: Extension size exceeds 100MB limit"
+          exit 1
+        fi

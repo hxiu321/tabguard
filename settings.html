@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=430, initial-scale=1">
+    <title>TabGuard 设置</title>
+    <style>
+      html,
+      body {
+        min-width: 430px;
+        margin: 0;
+      }
+
+      .settingsShell {
+        min-width: 430px;
+      }
+    </style>
+    <link rel="stylesheet" href="settings.css">
+  </head>
+  <body>
+    <main class="settingsShell">
+      <header class="settingsHeader">
+        <button id="backButton" class="iconButton" type="button" aria-label="返回" title="返回">←</button>
+        <div>
+          <h1>设置</h1>
+          <p id="saveHint">TabGuard 1.0.0</p>
+        </div>
+      </header>
+
+      <form id="settingsForm" class="settingsForm">
+        <section class="section">
+          <div class="sectionHead">
+            <h2>AI 模型设置</h2>
+            <p>配置后会优先使用接口摘要；未配置时使用本地规则。</p>
+          </div>
+
+          <div class="fieldGrid">
+            <label class="field">
+              <span>模型 Provider</span>
+              <select id="provider" name="provider">
+                <option value="coze">Coze</option>
+                <option value="openai-compatible">OpenAI Compatible</option>
+                <option value="custom">Custom</option>
+              </select>
+            </label>
+
+            <label class="field">
+              <span>Base URL</span>
+              <input id="baseUrl" name="baseUrl" type="text" inputmode="url" placeholder="https://api.coze.cn">
+            </label>
+
+            <label class="field">
+              <span>API Key</span>
+              <input id="apiKey" name="apiKey" type="password" autocomplete="off" placeholder="••••••••••">
+            </label>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="sectionHead">
+            <h2>阅读设置</h2>
+          </div>
+
+          <div class="settingRows">
+            <label class="switchRow">
+              <span>
+                <strong>默认保存后关闭 Tab</strong>
+                <small>保存成功后短暂提示，再关闭当前页面。</small>
+              </span>
+              <input id="closeTabAfterSave" name="closeTabAfterSave" type="checkbox">
+            </label>
+
+            <label class="switchRow">
+              <span>
+                <strong>自动生成摘要</strong>
+                <small>未设置 API Key 时使用本地摘要。</small>
+              </span>
+              <input id="autoSummary" name="autoSummary" type="checkbox">
+            </label>
+
+            <label class="field compactField">
+              <span>默认过期天数</span>
+              <input id="expiryDays" name="expiryDays" type="number" min="1" max="365" step="1">
+            </label>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="sectionHead">
+            <h2>分类管理</h2>
+          </div>
+
+          <div id="categoryList" class="categoryList"></div>
+          <div class="categoryAdd">
+            <input id="newCategory" type="text" maxlength="12" placeholder="添加分类">
+            <button id="addCategory" class="secondaryButton" type="button">添加</button>
+          </div>
+        </section>
+
+        <section class="section dataSection">
+          <div class="sectionHead">
+            <h2>数据管理</h2>
+            <p id="pageTotal">已保存页面数：0</p>
+          </div>
+          <button id="clearAllData" class="dangerButton" type="button">清空所有数据</button>
+        </section>
+
+        <footer class="saveBar">
+          <button id="saveSettings" class="primaryButton" type="submit">保存设置</button>
+        </footer>
+      </form>
+    </main>
+
+    <script src="lib/utils.js"></script>
+    <script src="lib/storage.js"></script>
+    <script src="settings.js"></script>
+  </body>
+</html>
