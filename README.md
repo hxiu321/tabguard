@@ -17,14 +17,11 @@
 
 ## 📸 截图
 
-### Dashboard 主页面
-![Dashboard](assets/screenshot-dashboard.png)
-
 ### 保存页面
-![Save Page](assets/screenshot-save.png)
+![Save Page](assets/TabGuard-保存页面.png)
 
 ### 设置页面
-![Settings](assets/screenshot-settings.png)
+![Settings](assets/TabGuard-设置页面.png)
 
 ---
 
@@ -37,7 +34,7 @@
 
 ### 方式二：手动安装
 
-1. 前往 [Releases](https://github.com/your-username/tabguard/releases) 下载最新版本的 `.zip` 文件
+1. 前往 [Releases](https://github.com/hxiu321/tabguard/releases) 下载最新版本的 `.zip` 文件
 2. 解压文件
 3. 打开 Chrome，访问 `chrome://extensions/`
 4. 开启右上角的"开发者模式"
@@ -56,7 +53,7 @@
 
 ```bash
 # 1. 克隆仓库
-git clone https://github.com/your-username/tabguard.git
+git clone https://github.com/hxiu321/tabguard.git
 cd tabguard
 
 # 2. 打开项目
