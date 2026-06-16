@@ -30,12 +30,7 @@
 
 ## 🚀 安装
 
-### 方式一：Chrome Web Store（推荐）
-
-1. 打开 [Chrome Web Store](https://chrome.google.com/webstore) 搜索 "TabGuard"
-2. 点击"添加到 Chrome"
-
-### 方式二：手动安装
+### 手动安装
 
 1. 前往 [Releases](https://github.com/hxiu321/tabguard/releases) 下载最新版本的 `.zip` 文件
 2. 解压文件
